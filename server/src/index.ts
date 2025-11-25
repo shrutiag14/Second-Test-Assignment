@@ -9,7 +9,10 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://shrutiag14.github.io', 'http://localhost:3000'],
+  credentials: true
+}));
 app.use(express.json());
 
 // Initialize database
