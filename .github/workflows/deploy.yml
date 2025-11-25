@@ -37,6 +37,8 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          # Set VITE_API_URL from repository secret (set PROD_API_URL to your backend base URL)
+          VITE_API_URL: ${{ secrets.PROD_API_URL }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
