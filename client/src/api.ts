@@ -2,7 +2,10 @@ import axios from 'axios';
 
 // Allow overriding the backend URL at build time using Vite env var VITE_API_URL.
 // When not provided, requests will be sent to the same origin under `/api`.
-const API_URL = import.meta.env.VITE_API_URL || '/api';
+// If VITE_API_URL is set, append /api to it for the full base URL
+const API_URL = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : '/api';
 
 const api = axios.create({
   baseURL: API_URL,
